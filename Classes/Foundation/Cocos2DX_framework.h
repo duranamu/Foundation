@@ -168,3 +168,5 @@ public: _ref_class_ _ref_object_;
 #define NS_PLUS static
 
 #define NS_DROP_EXTERN extern
+
+#define NSLog(format,...) printf(NSString::stringWithFormat(format,__VA_ARGS__)->ref->toStdString().c_str());

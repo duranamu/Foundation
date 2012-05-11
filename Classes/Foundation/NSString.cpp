@@ -161,7 +161,7 @@ const char *
 }
 
 NSString*
-	NSString::stringWIthFormat(NSString* format ,...)
+	NSString::stringWithFormat(NSString* format ,...)
 {
    va_list arguments;
    va_start(arguments,format);
