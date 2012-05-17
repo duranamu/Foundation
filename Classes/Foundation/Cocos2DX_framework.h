@@ -106,9 +106,9 @@ class __class__ : public __VA_ARGS__{ public: static __class__* alloc(); NS_INIT
 #define NS_IGNORE
 
 #define NS_INTERFACE_INIT_SPEC(__class__,...)\
-class __class__ : public __VA_ARGS__{ public:  NS_ALLOC_FULL(__class__)  NS_DEALLOCATE(__class__)
+class __class__ : public __VA_ARGS__{ public:  NS_ALLOC_FULL(__class__)  NS_DEALLOCATE(__class__) __class__* init();
 
-#define MAX_CACHE_OBJECT 50
+#define MAX_CACHE_OBJECT 20
 
 #define NS_CACHE_ALLOC_FULL(__var__)  void inline objectDidLoad(); static __var__* alloc(){ __var__* mem ; \
 			if(_cache == nil){return new __var__();} \

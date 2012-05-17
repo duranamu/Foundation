@@ -37,5 +37,5 @@ typedef struct objc_object
 #define nil  0
 
 
-extern void* hashed_objects[100];
+//extern void* hashed_objects[100];
 //OBJC_EXPORT const char *sel_getName(SEL selector);
