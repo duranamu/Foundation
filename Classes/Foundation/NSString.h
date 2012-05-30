@@ -44,6 +44,8 @@ public:
 		stringWithString(NSString* string);
 	static NSString*
 		 stringWithFormat(NSString* format,...);
+	static NSString*
+		string();
 	 NSString*
 		initWithContentOfFile_encoding_erro(NSString* path ,NSStringEncoding enc , NSError** error);
 	 static NSString*

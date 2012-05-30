@@ -158,7 +158,6 @@ const char *
 {
 	return ref->m_sString.c_str();
 }
-
 NSString*
 	NSString::stringWithFormat(NSString* format ,...)
 {
@@ -168,6 +167,11 @@ NSString*
    va_end(arguments);
 
    return string;
+}
+NSString*
+	NSString::string()
+{
+	return (NSString*)alloc()->init()->autorelease();
 }
 
 NS_CACHE_OBJECT_INIT(NSString);

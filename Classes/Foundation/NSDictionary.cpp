@@ -107,7 +107,11 @@ void
 vid
 	NSDictionary::nextObject()
 {
-	std::string* str = new std::string();
-	ref->next(str);
-	return str;
+	NSString*  string = NSString::string();
+	ref->next(&string->ref->m_sString);
+	if(string->ref->m_sString =="")
+	{
+		return nil;
+	}
+	return string;
 }
