@@ -41,6 +41,10 @@ NS_INTERFACE_ALLOC_SPEC(NSMutableArray , NSArray )
 		insertObject_atIndex(NSObject* anObject ,NSUInteger index);
 	BOOL
 		removeObject(NSObject* objectRemoving );
+	void 
+		exchangeObjectAtIndex_withObjectAtIndex(NSUInteger idx1 ,NSUInteger idx2);
+	void
+		replaceObjectAtIndex_withObject(NSUInteger index , NSObject* anObject);
 	inline void
 		removeLastObject();
 NS_END

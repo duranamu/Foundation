@@ -19,6 +19,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include <Foundation/NSMutableArray.h>
+#include <Foundation/NSException.h>
 #define super NSArray
 NSMutableArray*
 	NSMutableArray::arrayWithCapacity(NSUInteger capacity)
@@ -35,6 +36,33 @@ NSMutableArray::NSMutableArray(NSUInteger num)
 	ref = CCArray::arrayWithCapacity(num);
 }
 
+void
+	NSMutableArray::exchangeObjectAtIndex_withObjectAtIndex(NSUInteger idx1 ,NSUInteger idx2)
+{
+	ref->exchangeObjectAtIndex(idx1,idx2);
+}
+void
+	NSMutableArray::replaceObjectAtIndex_withObject(NSUInteger index , NSObject* anObject)
+{
+	if(anObject!= nil)
+	{
+	  throw NSException::exceptionWithName_reason_userInfo(
+		NSSTR("Panic"),NSInvalidArgumentException,nil);
+	  return ;
+	}
+	
+	if( index >=  ref->count())
+	{
+		 throw NSException::exceptionWithName_reason_userInfo(
+		NSSTR("Panic"),NSRangeException,nil);
+		 return;
+	}
+
+	ref->addObject(anObject);
+	ref->exchangeObject(anObject,ref->objectAtIndex(index));
+	ref->removeLastObject();
+	
+}
 BOOL
 	NSMutableArray::removeObject(NSObject* obj)
 {

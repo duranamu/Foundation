@@ -19,6 +19,15 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
 #include <Foundation/NSException.h>
+NSString * const NSGenericException=NSSTR("NSGenericException");
+NSString * const NSInvalidArgumentException=NSSTR("NSInvalidArgumentException");
+NSString * const NSRangeException=NSSTR("NSRangeException");
+
+NSString * const NSInternalInconsistencyException=NSSTR("NSInternalInconsistencyException");
+NSString * const NSMallocException=NSSTR("NSMallocException");
+
+NSString * const NSParseErrorException=NSSTR("NSParseErrorException");
+NSString * const NSInconsistentArchiveException=NSSTR("NSInconsistentArchiveException");
 NSString*
 	NSException::name()
 {
@@ -41,8 +50,12 @@ NSException*
 	self->_name = aName;
 	aReason->retain();
 	self->_reason = aReason;
-	dict->retain();
-	self->_useeInfo = dict;
+
+	if(dict)
+	{
+		dict->retain();
+		self->_useeInfo = dict;
+	}
 	return self;
 }
 NSException*
