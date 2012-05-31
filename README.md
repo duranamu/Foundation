@@ -22,8 +22,6 @@ Build Note:
 	   and NSOperation.cpp, the Foundation library will just work
 	   fine 
 
-	3  AppDelegate.h  AppDelegate.cpp can be removed 
-
-	4  HelloWorldScene.cpp HelloWorldScene.h are illustration for 
+	3  HelloWorldScene.cpp HelloWorldScene.h are illustration for 
 	   the library usage ,for more detail please goto Apple Online 
 	   iOS Developer Document 
