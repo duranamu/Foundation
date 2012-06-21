@@ -18,35 +18,15 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ****************************************************************************/
-#pragma once
-#include <Foundation/NSObjCRuntime.h>
-#include <Foundation/NSString.h>
-enum {
-   NSApplicationDirectory = 1,
-   NSDemoApplicationDirectory,
-   NSDeveloperApplicationDirectory,
-   NSAdminApplicationDirectory,
-   NSLibraryDirectory,
-   NSDeveloperDirectory,
-   NSUserDirectory,
-   NSDocumentationDirectory,
-   NSDocumentDirectory,
-   NSCoreServiceDirectory,
-   NSAutosavedInformationDirectory = 11,
-   NSDesktopDirectory = 12,
-   NSCachesDirectory = 13,
-   NSApplicationSupportDirectory = 14,
-   NSDownloadsDirectory = 15,
-   NSInputMethodsDirectory = 16,
-   NSMoviesDirectory = 17,
-   NSMusicDirectory = 18,
-   NSPicturesDirectory = 19,
-   NSPrinterDescriptionDirectory = 20,
-   NSSharedPublicDirectory = 21,
-   NSPreferencePanesDirectory = 22,
-   NSItemReplacementDirectory = 99,
-   NSAllApplicationsDirectory = 100,
-   NSAllLibrariesDirectory = 101
-};
-typedef NSUInteger NSSearchPathDirectory;
-NSString * NSHomeDirectory (void);
+#include <Foundation/NSPathUtilities.h>
+
+NSString * NSHomeDirectory (void)
+{
+	static NSString* homeDirectory = nil;
+	if(!homeDirectory)
+	{
+		homeDirectory =  NSString::alloc()->initWithCString_encoding("C:\\Users\\Default"
+			,NSASCIIStringEncoding);
+	}
+	return homeDirectory;
+}
